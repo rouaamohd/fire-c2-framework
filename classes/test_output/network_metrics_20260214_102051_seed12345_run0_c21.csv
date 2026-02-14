@@ -1,0 +1,1 @@
+timestamp,metric_type,value,node_id,interface,throughput_mbps,latency_ms,jitter_ms,packet_loss_rate,utilization_percent,queue_length,collision_count,signal_strength,noise_floor,channel_busy_time

@@ -1,0 +1,17 @@
+{
+  "total_packets": 2188,
+  "total_node_states": 4711,
+  "total_covert_events": 37,
+  "sim_time_seconds": 60.0,
+  "wall_clock_seconds": 9.655144929885864,
+  "unique_nodes": 80,
+  "attack_events_count": 5,
+  "data_files": {
+    "packets": "test_output/packets_20260214_102051_seed12345_run0_c21.csv",
+    "node_states": "test_output/node_states_20260214_102051_seed12345_run0_c21.csv",
+    "covert_channel": "test_output/covert_channel_20260214_102051_seed12345_run0_c21.csv",
+    "network_metrics": "test_output/network_metrics_20260214_102051_seed12345_run0_c21.csv",
+    "attack_events": "test_output/attack_events_20260214_102051_seed12345_run0_c21.csv",
+    "fire_dynamics": "test_output/fire_dynamics_20260214_102051_seed12345_run0_c21.csv"
+  }
+}
