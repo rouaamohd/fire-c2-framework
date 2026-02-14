@@ -1,6 +1,0 @@
-timestamp,attack_type,attacker_ids,duration,intensity,success_rate,detection_status,impact_score,technique,target_nodes,triggers
-34.357611312,c2_backdoor,[25],0,1.0,1.0,undetected,0.0,covert_channel,[],['temperature_threshold_55.0']
-38.4443793,c2_backdoor,[26],0,1.0,1.0,undetected,0.0,covert_channel,[],['temperature_threshold_55.0']
-39.808638793,c2_backdoor,[45],0,1.0,1.0,undetected,0.0,covert_channel,[],['temperature_threshold_55.0']
-40.430170331,c2_backdoor,[36],0,1.0,1.0,undetected,0.0,covert_channel,[],['temperature_threshold_55.0']
-54.538805593,c2_backdoor,[34],0,1.0,1.0,undetected,0.0,covert_channel,[],['temperature_threshold_55.0']

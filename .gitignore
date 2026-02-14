@@ -3,3 +3,6 @@
 *.pdf
 __pycache__/
 *.pyc
+classes/test_output/
+classes/c2_backdoor_dataset/
+fire_c2_revision_todo.md
