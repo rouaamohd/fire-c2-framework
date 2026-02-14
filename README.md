@@ -328,67 +328,6 @@ done
 
 ---
 
-## 🎓 Research Context
-
-### Problem Statement
-
-Traditional intrusion detection struggles with **environment-triggered malware** that activates only under specific conditions. In IoT fire alarms:
-- Fires create legitimate temperature spikes and alarm traffic
-- Attackers exploit environmental cover to hide C2 communications
-- Existing datasets lack realistic coupling between physical events and cyber attacks
-
-### FIRE-C2 Solution
-
-1. **High-fidelity simulation**: ns-3 provides ns-level precision for wireless networks
-2. **Physical-cyber coupling**: Fire dynamics directly trigger attack behavior
-3. **Bidirectional C&C**: Realistic command channel with downlink control
-4. **Multi-modal data**: Enables cross-layer detection research
-
-### Potential Research Applications
-
-- **Anomaly detection**: Train ML models on environment-aware features
-- **Attack attribution**: Correlate fire spread patterns with C2 activity
-- **Traffic analysis**: Study covert channel entropy during events
-- **Forensics**: Reconstruct attack timelines from multi-modal logs
-
----
-
-## 📖 Citation
-
-If you use FIRE-C2 in your research, please cite:
-
-```bibtex
-@inproceedings{firec2-2026,
-  title={FIRE-C2: Environment-Triggered Command-and-Control Backdoor Dataset for IoT Fire Alarms},
-  author={[Your Name] and [Co-authors]},
-  booktitle={IEEE Open Journal of Communications Society},
-  year={2026},
-  publisher={IEEE}
-}
-```
-
----
-
-## 📄 License
-
-MIT License - See [LICENSE](LICENSE) for details
-
-**Research Use**: Permitted for academic research, security testing, and IDS development.
-**Prohibited Use**: Malware development, unauthorized network intrusion.
-
----
-
-## 🤝 Contributing
-
-Contributions welcome! Please:
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
 ## 🐛 Troubleshooting
 
 ### Issue: `ModuleNotFoundError: No module named 'ns'`
@@ -416,23 +355,7 @@ grep "C2_ENABLED\|ATTACKER_IDS" classes/Config.py
 
 ---
 
-## 📧 Contact
-
-- **Project Lead**: [Your Name] - [email@domain.com]
-- **Issues**: [GitHub Issues](https://github.com/YOUR_ORG/fire-c2/issues)
-- **Website**: [Project Homepage](https://your-website.com)
-
----
-
-## 🙏 Acknowledgments
-
-- ns-3 development team for network simulation infrastructure
-- IEEE Open Journal of Communications Society reviewers for feedback
-- [Your institution] for computational resources
-
----
-
 **Last Updated**: February 14, 2026
-**Framework Version**: 2.0
+**Framework Version**: 1.0
 **Compatible ns-3 Versions**: 3.35+
-**Status**: ✅ Production Ready
+
