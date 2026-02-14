@@ -1,4 +1,3 @@
-.claude/
 *.zip
 *.pdf
 __pycache__/
