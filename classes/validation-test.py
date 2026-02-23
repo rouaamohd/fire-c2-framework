@@ -8,8 +8,6 @@ This script runs a quick validation test with a smaller grid to verify:
 - Data collection pipeline
 
 Used for pre-flight checks before full dataset generation.
-
-Copyright (c) 2025 FIRE-C2 Research Team
 """
 
 from ns import ns

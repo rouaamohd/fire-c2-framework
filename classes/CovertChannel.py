@@ -9,9 +9,6 @@ Encoding techniques:
 - LSB steganography in temperature sensor readings
 - Timing modulation (inter-packet delays encode bits)
 - Random padding to prevent fingerprinting
-
-Copyright (c) 2025 FIRE-C2 Research Team
-Licensed under the MIT License
 """
 
 import struct

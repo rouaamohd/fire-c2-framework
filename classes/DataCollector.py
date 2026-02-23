@@ -11,9 +11,6 @@ This module manages comprehensive data collection across six modalities:
 
 All data is exported as CSV files with synchronized timestamps for
 multi-modal machine learning analysis.
-
-Copyright (c) 2025 FIRE-C2 Research Team
-Licensed under the MIT License
 """
 
 import csv

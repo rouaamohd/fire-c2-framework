@@ -18,9 +18,6 @@ Options:
     --run INT         RNG run number (default: 0)
     --output DIR      Output directory (default: from Config.DATA_OUTPUT_DIR)
     --c2 {0,1}        Enable C2 backdoor: 1=enabled, 0=benign-only (default: from Config)
-
-Copyright (c) 2025 FIRE-C2 Research Team
-Licensed under the MIT License
 """
 
 from ns import ns

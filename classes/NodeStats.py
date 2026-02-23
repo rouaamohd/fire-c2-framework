@@ -4,8 +4,6 @@ NodeStats: Per-node traffic statistics tracker
 This module provides a lightweight statistics tracker for monitoring node-level
 network activity in the FIRE-C2 simulation framework.
 
-Copyright (c) 2025 FIRE-C2 Research Team
-Licensed under the MIT License
 """
 
 from dataclasses import dataclass

@@ -6,9 +6,6 @@ This module implements a smart sensor node with:
 - Fire propagation dynamics with heat transfer
 - C2 backdoor capability for compromised nodes
 - Realistic packet generation with temporal correlation
-
-Copyright (c) 2025 FIRE-C2 Research Team
-Licensed under the MIT License
 """
 
 import random
