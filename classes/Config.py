@@ -11,9 +11,6 @@ Parameter categories:
 - Network conditions (packet loss, jitter, timing)
 - C2 backdoor channel parameters (timing modulation, LSB encoding)
 - Data collection and output settings
-
-Copyright (c) 2025 FIRE-C2 Research Team
-Licensed under the MIT License
 """
 
 class Config:
