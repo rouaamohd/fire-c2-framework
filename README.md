@@ -2,7 +2,6 @@
 
 **Environment-Triggered Command-and-Control Backdoor Dataset Generator for IoT Fire Alarm Networks**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![ns-3: 3.x](https://img.shields.io/badge/ns--3-3.x-blue.svg)](https://www.nsnam.org/)
 [![Python: 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
 
@@ -358,4 +357,5 @@ grep "C2_ENABLED\|ATTACKER_IDS" classes/Config.py
 **Last Updated**: February 14, 2026
 **Framework Version**: 1.0
 **Compatible ns-3 Versions**: 3.35+
+
 
