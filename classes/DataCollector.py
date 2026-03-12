@@ -51,16 +51,22 @@ class DataCollector:
             run_id: Unique identifier for this simulation run
             output_dir: Directory path for dataset output
 
-        Creates six CSV files:
-        - packets_{run_id}.csv: Network traffic data
-        - node_states_{run_id}.csv: Time-series node telemetry
-        - covert_channel_{run_id}.csv: C2 backdoor activity
-        - network_metrics_{run_id}.csv: Performance statistics
-        - attack_events_{run_id}.csv: Attack lifecycle events
-        - fire_dynamics_{run_id}.csv: Fire propagation data
+        Creates six subdirectories, each containing one CSV per run:
+        - packets/packets_{run_id}.csv: Network traffic data
+        - node_states/node_states_{run_id}.csv: Time-series node telemetry
+        - covert_channel/covert_channel_{run_id}.csv: C2 backdoor activity
+        - network_metrics/network_metrics_{run_id}.csv: Performance statistics
+        - attack_events/attack_events_{run_id}.csv: Attack lifecycle events
+        - fire_dynamics/fire_dynamics_{run_id}.csv: Fire propagation data
         """
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(exist_ok=True)
+
+        # Create per-type subdirectories
+        subdirs = ['packets', 'node_states', 'covert_channel',
+                   'network_metrics', 'attack_events', 'fire_dynamics']
+        for d in subdirs:
+            (self.output_dir / d).mkdir(exist_ok=True)
 
         self._headers = {}
         packet_headers = [
@@ -71,7 +77,7 @@ class DataCollector:
             'tx_power', 'data_rate', 'retransmission_count',
             'congestion_window', 'queue_delay', 'hop_count'
         ]
-        self.packet_file = self.output_dir / f"packets_{run_id}.csv"
+        self.packet_file = self.output_dir / 'packets' / f"packets_{run_id}.csv"
         with open(self.packet_file, 'w', newline='') as f:
             csv.writer(f).writerow(packet_headers)
         self._headers[str(self.packet_file)] = packet_headers
@@ -85,7 +91,7 @@ class DataCollector:
             'packets_sent', 'packets_received', 'packets_dropped',
             'malicious_packets_sent', 'spoofing_count', 'drift_offset'
         ]
-        self.node_state_file = self.output_dir / f"node_states_{run_id}.csv"
+        self.node_state_file = self.output_dir / 'node_states' / f"node_states_{run_id}.csv"
         with open(self.node_state_file, 'w', newline='') as f:
             csv.writer(f).writerow(node_state_headers)
         self._headers[str(self.node_state_file)] = node_state_headers
@@ -95,7 +101,7 @@ class DataCollector:
             'bit_sequence', 'timing_delay', 'lsb_encoded_value',
             'payload_size', 'protocol_used'
         ]
-        self.covert_file = self.output_dir / f"covert_channel_{run_id}.csv"
+        self.covert_file = self.output_dir / 'covert_channel' / f"covert_channel_{run_id}.csv"
         with open(self.covert_file, 'w', newline='') as f:
             csv.writer(f).writerow(covert_headers)
         self._headers[str(self.covert_file)] = covert_headers
@@ -107,7 +113,7 @@ class DataCollector:
             'utilization_percent', 'queue_length', 'collision_count',
             'signal_strength', 'noise_floor', 'channel_busy_time'
         ]
-        self.network_file = self.output_dir / f"network_metrics_{run_id}.csv"
+        self.network_file = self.output_dir / 'network_metrics' / f"network_metrics_{run_id}.csv"
         with open(self.network_file, 'w', newline='') as f:
             csv.writer(f).writerow(network_headers)
         self._headers[str(self.network_file)] = network_headers
@@ -118,7 +124,7 @@ class DataCollector:
             'intensity', 'success_rate', 'detection_status',
             'impact_score', 'technique', 'target_nodes', 'triggers'
         ]
-        self.attack_file = self.output_dir / f"attack_events_{run_id}.csv"
+        self.attack_file = self.output_dir / 'attack_events' / f"attack_events_{run_id}.csv"
         with open(self.attack_file, 'w', newline='') as f:
             csv.writer(f).writerow(attack_headers)
         self._headers[str(self.attack_file)] = attack_headers
@@ -130,7 +136,7 @@ class DataCollector:
             'ignition_probability', 'radiative_heat', 'convective_heat',
             'fuel_remaining', 'suppression_effect', 'reignition_count'
         ]
-        self.fire_file = self.output_dir / f"fire_dynamics_{run_id}.csv"
+        self.fire_file = self.output_dir / 'fire_dynamics' / f"fire_dynamics_{run_id}.csv"
         with open(self.fire_file, 'w', newline='') as f:
             csv.writer(f).writerow(fire_headers)
         self._headers[str(self.fire_file)] = fire_headers
