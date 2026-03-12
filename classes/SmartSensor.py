@@ -144,8 +144,7 @@ class SmartSensor:
                     heat_bonus = neighbor.heat_level * 0.3
                     spread_prob += heat_bonus
 
-                    fire_tick = getattr(Config, 'FIRE_TICK_INTERVAL', 1.0)
-                    if random.random() < spread_prob * fire_tick:
+                    if random.random() < spread_prob:
                         neighbor.on_fire = True
                         neighbor.fire_start_time = sim_time
 
