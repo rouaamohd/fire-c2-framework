@@ -29,13 +29,6 @@ Research Context:
     This is a RESEARCH FRAMEWORK for studying IoT security, specifically analyzing
     how malware can leverage legitimate sensor traffic to hide C2 communications.
     The framework enables dataset generation for training intrusion detection systems.
-
-Copyright (c) 2024-2026 FIRE-C2 Research Project
-Licensed under GPL-3.0
-
-Author: Network Security Research Lab
-Contact: [Insert research contact]
-Version: 2.0
 """
 
 from ns import ns
