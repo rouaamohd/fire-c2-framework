@@ -29,6 +29,13 @@ Research Context:
     This is a RESEARCH FRAMEWORK for studying IoT security, specifically analyzing
     how malware can leverage legitimate sensor traffic to hide C2 communications.
     The framework enables dataset generation for training intrusion detection systems.
+
+Copyright (c) 2024-2026 FIRE-C2 Research Project
+Licensed under GPL-3.0
+
+Author: Network Security Research Lab
+Contact: [Insert research contact]
+Version: 2.0
 """
 
 from ns import ns
@@ -502,8 +509,6 @@ class FireAlarmSimulation:
             self._reschedule_node(node)
             return
 
-        node.update_temperature(sim_time, self.node_grid)
-
         if Config.DATA_COLLECTION_ENABLED:
             self.data_collector.record_fire_dynamics(
                 timestamp=sim_time,
@@ -599,7 +604,7 @@ class FireAlarmSimulation:
 
         Timing Strategy (Equation 8):
             Δt = δ_base + b_i · δ_timing + jitter
-            - δ_base: Config.C2_BEACON_INT (7.5s default)
+            - δ_base: Config.C2_BEACON_INT (2.5s default)
             - b_i · δ_timing: Covert bit modulation (Config.C2_TIMING_DELTA)
             - jitter: ±Config.C2_JITTER for detection evasion
 
@@ -623,13 +628,15 @@ class FireAlarmSimulation:
             return
         if not getattr(node, "attack_triggered", False):
             return
+        if getattr(node, "attack_mode", None) == "DORMANT":
+            return
         if getattr(node, "c2_socket", None) is None:
             return
 
         # --- Config fallbacks ---
-        C2_BEACON_INT = getattr(Config, "C2_BEACON_INT", 7.5)
-        C2_EXFIL_PERIOD = getattr(Config, "C2_EXFIL_PERIOD", 15.0)
-        C2_JITTER = getattr(Config, "C2_JITTER", 1.0)
+        C2_BEACON_INT = getattr(Config, "C2_BEACON_INT", 2.5)
+        C2_EXFIL_PERIOD = getattr(Config, "C2_EXFIL_PERIOD", 6.0)
+        C2_JITTER = getattr(Config, "C2_JITTER", 0.2)
 
         # --- Ensure next_c2_beacon / next_exfil timers exist on node ---
         if not hasattr(node, "next_c2_beacon"):
@@ -764,7 +771,7 @@ class FireAlarmSimulation:
             node: SmartSensor instance to reschedule
 
         Timing Strategy:
-            - Base interval: Config.SEND_INT (typically 5-10 seconds)
+            - Base interval: Config.SEND_INT (typically 2.0 seconds)
             - Jitter: ±Config.JITTER_MAX (prevents network storms)
             - Minimum interval: 0.1 seconds (safety bound)
 
@@ -1080,6 +1087,31 @@ class FireAlarmSimulation:
             ns.cppyy.gbl.pythonMakeEvent(collect_node_states)
         )
 
+    def _schedule_fire_ticks(self):
+        """
+        Schedule fire physics updates on an independent timer.
+
+        Decouples fire propagation dynamics from the communication transmission
+        loop. update_temperature() is now driven by FIRE_TICK_INTERVAL (1.0 s
+        by default) regardless of SEND_INT, so fire spread rate is independent
+        of packet transmission frequency.
+        """
+        def fire_tick():
+            sim_time = ns.Simulator.Now().GetSeconds()
+            for node in self.nodes:
+                node.update_temperature(sim_time, self.node_grid)
+            self._event_refs.append(fire_tick)
+            ns.Simulator.Schedule(
+                ns.Seconds(Config.FIRE_TICK_INTERVAL),
+                ns.cppyy.gbl.pythonMakeEvent(fire_tick)
+            )
+
+        self._event_refs.append(fire_tick)
+        ns.Simulator.Schedule(
+            ns.Seconds(Config.FIRE_TICK_INTERVAL),
+            ns.cppyy.gbl.pythonMakeEvent(fire_tick)
+        )
+
     def _schedule_c2_commands(self):
         """
         Schedule periodic downlink C2 commands from cloud to attackers.
@@ -1109,10 +1141,11 @@ class FireAlarmSimulation:
                 cmd_type = random.choice(['increase_exfil', 'decrease_exfil', 'go_dormant', 'resume'])
 
                 # Execute command directly (simulation-level injection)
+                # Both commands adjust exfil interval by ±20% per manuscript
                 if cmd_type == 'increase_exfil':
-                    target.next_exfil = sim_time + 3.0
+                    target.next_exfil = sim_time + Config.C2_EXFIL_PERIOD * 0.8
                 elif cmd_type == 'decrease_exfil':
-                    target.next_exfil = sim_time + 12.0
+                    target.next_exfil = sim_time + Config.C2_EXFIL_PERIOD * 1.2
                 elif cmd_type == 'go_dormant':
                     target.attack_mode = "DORMANT"
                 elif cmd_type == 'resume':
@@ -1209,6 +1242,7 @@ class FireAlarmSimulation:
             self._setup_c2_sink()
             if getattr(Config, "C2_ENABLED", False):
                 self._schedule_c2_commands()
+            self._schedule_fire_ticks()
             self._schedule_network_metrics()
             self._schedule_node_state_collection()
 
