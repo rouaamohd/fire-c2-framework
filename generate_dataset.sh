@@ -185,7 +185,7 @@ Modalities per Run:
 6. fire_dynamics_*.csv   - Fire propagation data
 
 For usage instructions, see:
-https://github.com/YOUR_ORG/fire-c2/blob/main/README.md
+https://github.com/rouaamohd/fire-c2-framework
 EOF
 
 echo -e "${GREEN}Dataset ready at: $OUTPUT_BASE${NC}"
