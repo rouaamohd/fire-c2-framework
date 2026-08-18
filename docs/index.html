@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="FIRE-C2: Environment-Triggered Backdoor Attacks in Wireless IoT Networks." />
+  <title>FIRE-C2</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top">FIRE-C2</a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#dataset">Dataset</a>
+        <a href="#citation">Citation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <p class="eyebrow">IEEE Open Journal of the Communications Society · 2026</p>
+      <h1>FIRE-C2</h1>
+      <h2>Environment-Triggered Backdoor Attacks in Wireless IoT Networks</h2>
+      <p class="authors">Rouaa Naim · Hams Gelban · Ahmed Badawy · Saeed Salem · Mahmoud Barhamgi</p>
+      <p class="affiliation">Department of Computer Science and Engineering, Qatar University</p>
+      <div class="buttons">
+        <a class="button primary" href="https://doi.org/10.1109/OJCOMS.2026.3695160" target="_blank" rel="noopener">Paper</a>
+        <a class="button" href="https://github.com/rouaamohd/fire-c2-framework" target="_blank" rel="noopener">Code</a>
+        <a class="button" href="https://doi.org/10.21227/dgv6-1f39" target="_blank" rel="noopener">Dataset</a>
+        <a class="button" href="#citation">BibTeX</a>
+      </div>
+      <figure class="main-figure">
+        <img src="assets/system-model.png" alt="FIRE-C2 system model" />
+        <figcaption>FIRE-C2 system model: an IoT fire-alarm network with environment-triggered covert command-and-control communication.</figcaption>
+      </figure>
+    </section>
+
+    <section id="about" class="section wrap">
+      <div class="section-title">
+        <span>About</span>
+        <h3>What is FIRE-C2?</h3>
+      </div>
+      <div class="two-col">
+        <p>FIRE-C2 is an open-source <strong>ns-3 simulation and multimodal dataset framework</strong> for studying stealthy backdoor attacks in wireless IoT cyber-physical systems.</p>
+        <p>Compromised sensors behave normally until fire-induced temperature conditions trigger the backdoor. The system then establishes covert C2 communication using timing-based signaling, LSB-encoded exfiltration, and a downlink command channel.</p>
+      </div>
+
+      <div class="steps">
+        <div><b>01</b><strong>Dormant</strong><span>Compromised nodes look benign during normal operation.</span></div>
+        <div><b>02</b><strong>Triggered</strong><span>A physical fire event activates malicious behavior.</span></div>
+        <div><b>03</b><strong>C2 active</strong><span>Covert uplink and downlink communication begins.</span></div>
+      </div>
+
+      <figure class="simple-figure">
+        <img src="assets/attack-lifecycle.png" alt="FIRE-C2 attack lifecycle" />
+      </figure>
+    </section>
+
+    <section id="dataset" class="section wrap">
+      <div class="section-title">
+        <span>Dataset</span>
+        <h3>Multi-modal data from the full attack lifecycle.</h3>
+      </div>
+      <p class="section-intro">Each simulation run exports synchronized network, node, physical, and adversarial records with ground-truth labels.</p>
+
+      <div class="stats">
+        <div><strong>250</strong><span>simulation runs</span></div>
+        <div><strong>2.84M</strong><span>packet records</span></div>
+        <div><strong>14.2M</strong><span>node-state records</span></div>
+        <div><strong>104K</strong><span>covert-channel events</span></div>
+      </div>
+
+      <div class="modalities">
+        <span>Packets</span><span>Node states</span><span>Covert channel</span><span>Network metrics</span><span>Attack events</span><span>Fire dynamics</span>
+      </div>
+
+      <div class="dataset-link">
+        <div>
+          <strong>FIRE-C2 Dataset</strong>
+          <span>Publicly available with the open-source framework.</span>
+        </div>
+        <a href="https://doi.org/10.21227/dgv6-1f39" target="_blank" rel="noopener">Open dataset →</a>
+      </div>
+    </section>
+
+    <section id="citation" class="section wrap">
+      <div class="section-title">
+        <span>Publication</span>
+        <h3>Citation</h3>
+      </div>
+      <div class="citation-card">
+        <p><strong>R. Naim, H. Gelban, A. Badawy, S. Salem, and M. Barhamgi</strong>, “FIRE-C2: Environment-Triggered Backdoor Attacks in Wireless IoT Networks,” <em>IEEE Open Journal of the Communications Society</em>, vol. 7, 2026.</p>
+        <p class="doi">DOI: <a href="https://doi.org/10.1109/OJCOMS.2026.3695160" target="_blank" rel="noopener">10.1109/OJCOMS.2026.3695160</a></p>
+      </div>
+      <details class="bibtex">
+        <summary>BibTeX</summary>
+        <pre><code>@article{naim2026firec2,
+  title   = {FIRE-C2: Environment-Triggered Backdoor Attacks in Wireless IoT Networks},
+  author  = {Naim, Rouaa and Gelban, Hams and Badawy, Ahmed and Salem, Saeed and Barhamgi, Mahmoud},
+  journal = {IEEE Open Journal of the Communications Society},
+  volume  = {7},
+  year    = {2026},
+  doi     = {10.1109/OJCOMS.2026.3695160}
+}</code></pre>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>FIRE-C2 · Qatar University · 2026</span>
+      <a href="https://github.com/rouaamohd/fire-c2-framework" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </footer>
+</body>
+</html>

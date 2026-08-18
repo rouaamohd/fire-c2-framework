@@ -1,0 +1,93 @@
+
+:root {
+  --text: #151515;
+  --muted: #676767;
+  --line: #e7e7e7;
+  --accent: #0b6f8f;
+  --soft: #f8fafb;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+.wrap { width: min(1040px, calc(100% - 40px)); margin: 0 auto; }
+.topbar { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); }
+.nav { height: 62px; display: flex; align-items: center; justify-content: space-between; }
+.brand { font-size: 15px; font-weight: 750; letter-spacing: -.02em; }
+nav { display: flex; gap: 24px; }
+nav a { font-size: 13px; color: var(--muted); }
+nav a:hover { color: var(--text); }
+.hero { padding: 84px 0 70px; text-align: center; }
+.eyebrow { margin: 0 0 20px; color: var(--accent); font-size: 13px; font-weight: 650; }
+.hero h1 { margin: 0; font-size: clamp(58px, 10vw, 104px); line-height: .92; letter-spacing: -.065em; font-weight: 760; }
+.hero h2 { max-width: 820px; margin: 22px auto 0; font-size: clamp(26px, 4vw, 42px); line-height: 1.12; letter-spacing: -.03em; font-weight: 600; }
+.authors { margin: 26px 0 0; font-size: 15px; line-height: 1.7; }
+.affiliation { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
+.buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+.button { min-width: 92px; padding: 10px 15px; border: 1px solid #d9d9d9; border-radius: 7px; font-size: 13px; font-weight: 650; background: #fff; }
+.button:hover { border-color: #aaa; }
+.button.primary { background: #151515; color: #fff; border-color: #151515; }
+.main-figure { margin: 62px auto 0; max-width: 860px; }
+.main-figure img, .simple-figure img { margin: 0 auto; }
+.main-figure figcaption { margin-top: 13px; color: var(--muted); font-size: 12px; line-height: 1.55; text-align: left; }
+.section { padding: 90px 0; border-top: 1px solid var(--line); }
+.section-title { display: grid; grid-template-columns: 150px 1fr; gap: 30px; align-items: start; margin-bottom: 34px; }
+.section-title > span { padding-top: 8px; color: var(--accent); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+.section-title h3 { margin: 0; max-width: 720px; font-size: clamp(32px, 5vw, 50px); line-height: 1.08; letter-spacing: -.035em; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; margin-left: 180px; }
+.two-col p, .section-intro { margin: 0; color: #4d4d4d; font-size: 16px; line-height: 1.8; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin: 54px 0 46px 180px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.steps div { padding: 24px 26px 24px 0; }
+.steps div + div { padding-left: 26px; border-left: 1px solid var(--line); }
+.steps b { display: block; color: var(--accent); font-size: 11px; }
+.steps strong { display: block; margin-top: 16px; font-size: 17px; }
+.steps span { display: block; margin-top: 7px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.simple-figure { margin: 0 0 0 180px; padding: 18px; border: 1px solid var(--line); border-radius: 8px; }
+.section-intro { margin-left: 180px; max-width: 680px; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); margin: 46px 0 30px 180px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.stats div { padding: 24px 20px 24px 0; }
+.stats div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+.stats strong { display: block; font-size: 25px; letter-spacing: -.03em; }
+.stats span { display: block; margin-top: 5px; color: var(--muted); font-size: 11px; }
+.modalities { margin-left: 180px; display: flex; flex-wrap: wrap; gap: 8px; }
+.modalities span { padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; color: #555; font-size: 12px; }
+.dataset-link { margin: 28px 0 0 180px; padding: 20px 22px; border: 1px solid var(--line); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.dataset-link strong { display: block; font-size: 15px; }
+.dataset-link span { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; }
+.dataset-link a { color: var(--accent); font-size: 13px; font-weight: 700; }
+.citation-card, .bibtex { margin-left: 180px; max-width: 760px; }
+.citation-card { padding: 24px 26px; border: 1px solid var(--line); border-radius: 8px; }
+.citation-card p { margin: 0; color: #444; font-size: 14px; line-height: 1.75; }
+.citation-card .doi { margin-top: 12px; font-size: 12px; }
+.citation-card a { color: var(--accent); }
+.bibtex { margin-top: 14px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.bibtex summary { cursor: pointer; padding: 14px 16px; font-size: 13px; font-weight: 650; }
+pre { margin: 0; padding: 18px; overflow-x: auto; background: var(--soft); border-top: 1px solid var(--line); }
+code { font: 12px/1.7 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+footer { border-top: 1px solid var(--line); }
+.footer-inner { min-height: 90px; display: flex; align-items: center; justify-content: space-between; color: var(--muted); font-size: 12px; }
+.footer-inner a:hover { color: var(--text); }
+@media (max-width: 760px) {
+  .wrap { width: min(100% - 28px, 1040px); }
+  nav { gap: 14px; }
+  .hero { padding-top: 60px; }
+  .section { padding: 70px 0; }
+  .section-title { grid-template-columns: 1fr; gap: 8px; }
+  .section-title > span { padding-top: 0; }
+  .two-col, .steps, .simple-figure, .section-intro, .stats, .modalities, .dataset-link, .citation-card, .bibtex { margin-left: 0; }
+  .two-col { grid-template-columns: 1fr; gap: 18px; }
+  .steps { grid-template-columns: 1fr; }
+  .steps div { padding: 20px 0; }
+  .steps div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stats div:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
+  .stats div:nth-child(4) { border-top: 1px solid var(--line); }
+  .dataset-link { align-items: flex-start; flex-direction: column; }
+}
